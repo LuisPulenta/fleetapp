@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             BackgroundColor="PowderBlue"
+             Title="{Binding Title}"
+             x:Class="Fleet_App.Prism.Views.GraphPage">
+
+  <StackLayout
+    Margin="15">
+    <StackLayout>
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+         
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="10" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="2*" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="3*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        
+        <Label 
+                       Grid.Row="0"
+                       Grid.Column="0"
+          Grid.ColumnSpan="2"
+                       FontSize="Micro"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       Text="Proyecto:"/>
+        <Picker        Grid.Row="0"
+                       Grid.Column="2"
+                       Grid.ColumnSpan="3"
+                       VerticalOptions="Center"
+                       FontSize="Micro"
+                       ItemDisplayBinding="{Binding Name}"
+                       ItemsSource="{Binding Proyectos}"
+                       SelectedItem="{Binding proyectoElegido}"
+                       Title="Proyecto...">
+        </Picker>
+
+        <Label         Grid.Row="1"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="2"
+                       VerticalOptions="Center"
+                       FontSize="Micro"
+                       FontAttributes="Bold"
+                       Text="Desde:"/>
+
+        <DatePicker  Grid.Row="1"
+                     Grid.Column="2"
+                     VerticalOptions="Center"
+                     MaximumDate="{Binding Hoy}"
+                     FontSize="Micro"
+                     Date="{Binding StartDate}"/>
+
+        <Label         Grid.Row="1"
+                       Grid.Column="3"
+                       VerticalOptions="Center"
+                       FontSize="Micro"
+                       FontAttributes="Bold"
+                       Text="Hasta:"/>
+
+        <DatePicker  Grid.Row="1"
+                     Grid.Column="4"
+                     VerticalOptions="Center"
+                     HorizontalOptions="StartAndExpand"
+                     FontSize="Micro"
+                     MaximumDate="{Binding Hoy}"
+                     Date="{Binding EndDate}"/>
+
+        <ImageButton Grid.Row="0"
+                     Grid.Column="5"
+                     BackgroundColor="Blue"
+                     CornerRadius="10"
+                     VerticalOptions="Center"
+                     HeightRequest="80"
+                     Grid.RowSpan="2"
+                     Command="{Binding RefreshCommand}" 
+                     Source="ic_refresh"/>
+      </Grid>
+    </StackLayout>
+
+    <StackLayout Orientation="Horizontal">
+      <Label 
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       Text="Total OT Asignadas:"/>
+
+      <Label         Grid.Row="0"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="8"
+                       VerticalOptions="Center"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       Text="{Binding Ordenes}"/>
+    </StackLayout>
+
+    <chart:SfChart
+     
+      x:Name="series"
+      VerticalOptions="FillAndExpand">
+
+      <chart:SfChart.Legend>
+        <chart:ChartLegend 
+        
+          />
+      </chart:SfChart.Legend>
+
+      <chart:SfChart.ColorModel>
+        <chart:ChartColorModel 
+          Palette="Natural" />
+      </chart:SfChart.ColorModel>
+
+      <chart:SfChart.ChartBehaviors>
+        <chart:ChartTooltipBehavior 
+            BackgroundColor="#404041" />
+      </chart:SfChart.ChartBehaviors>
+
+
+    
+      
+
+      <chart:SfChart.Title>
+        <chart:ChartTitle Text="Ordenes de Trabajo por Proyecto"/>
+      </chart:SfChart.Title>
+
+      <chart:SfChart.PrimaryAxis>
+        <chart:CategoryAxis>
+          <chart:CategoryAxis.Title>
+            <chart:ChartAxisTitle 
+              Text="Ordenes de Trabajo"
+              
+              ></chart:ChartAxisTitle>
+          </chart:CategoryAxis.Title>
+        </chart:CategoryAxis>
+      </chart:SfChart.PrimaryAxis>
+
+      <chart:SfChart.SecondaryAxis>
+        <chart:NumericalAxis
+            
+            
+          >
+          <chart:NumericalAxis.Title>
+            <chart:ChartAxisTitle Text="Cantidades"></chart:ChartAxisTitle>
+          </chart:NumericalAxis.Title>
+        </chart:NumericalAxis>
+      </chart:SfChart.SecondaryAxis>
+
+      
+      <chart:SfChart.Series>
+        <chart:ColumnSeries
+          ItemsSource="{Binding Grafico}" 
+          XBindingPath="Nombre" 
+          StrokeColor="Blue"
+          Color="Blue"
+          Label="{Binding proyectoElegido.Name}" 
+          YBindingPath="Cantidad">
+
+          <chart:ColumnSeries.DataMarker>
+            <chart:ChartDataMarker ShowLabel="True">
+              <chart:ChartDataMarker.LabelStyle>
+                <chart:DataMarkerLabelStyle 
+                  LabelPosition="Auto"
+                  LabelFormat="#"  
+                  Font="12"
+                  BackgroundColor="White"
+                  TextColor="Blue">
+                </chart:DataMarkerLabelStyle>
+              </chart:ChartDataMarker.LabelStyle>
+            </chart:ChartDataMarker>
+          </chart:ColumnSeries.DataMarker>
+
+
+
+        </chart:ColumnSeries>
+      </chart:SfChart.Series>
+
+    </chart:SfChart>
+    
+  </StackLayout>
+</ContentPage>

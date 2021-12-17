@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Fleet_App.Prism.Views.CableMapPage"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             BackgroundColor="{StaticResource colorBackground}"
+             Title="{Binding Title}">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Icon="ic_action_streetview"
+                 Clicked="MapStreetCommand" />
+    <ToolbarItem Icon="ic_action_satellite"
+                 Clicked="MapSateliteCommand" />
+    <ToolbarItem Icon="ic_action_looks_two"
+                 Clicked="MapHybridCommand" />
+  </ContentPage.ToolbarItems>
+  <ContentPage.Content>
+
+    <StackLayout>
+      <maps:Map
+                x:Name="MyMap"
+                MapType="Street" 
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+        <x:Arguments>
+          <maps:MapSpan>
+            <x:Arguments>
+              <!-- Obelisco -->
+              <maps:Position>
+                <x:Arguments>
+                  <x:Double>-34.60388889</x:Double>
+                  <x:Double>-58.48138889</x:Double>
+                </x:Arguments>
+              </maps:Position>
+              <x:Double>5</x:Double>
+              <x:Double>5</x:Double>
+            </x:Arguments>
+          </maps:MapSpan>
+        </x:Arguments>
+      </maps:Map>
+
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

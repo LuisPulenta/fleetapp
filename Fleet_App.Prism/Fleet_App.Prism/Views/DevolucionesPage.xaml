@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Fleet_App.Prism.Views.DevolucionesPage"
+             BackgroundColor="Silver"
+             Title="{Binding Title}">
+
+  <StackLayout Padding="15">
+    <Label
+    Text="Tiene para devolver al depósito la siguiente cantidad de Equipos recuperados:"
+    FontSize="Large">
+    </Label>
+
+    <ListView 
+      VerticalOptions="CenterAndExpand"
+      ItemsSource="{Binding Devoluciones}"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding RefreshCommand}"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                SeparatorVisibility="None">
+
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <Frame CornerRadius="10"
+                     HasShadow="True"
+                     BackgroundColor="White"
+                     Margin="3"
+                     Padding="5"
+                     >
+              <StackLayout>
+                <Grid HeightRequest="76"
+                        RowSpacing="-0">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                  </Grid.ColumnDefinitions>
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                  </Grid.RowDefinitions>
+                  <Label Grid.Row="0"
+                           Grid.Column="1"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Proyecto:"></Label>
+                  <Label Grid.Row="0"
+                           Grid.Column="2"
+                           Grid.ColumnSpan="5"
+                           FontSize="Large"
+                           FontAttributes="None"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Text="{Binding PROYECTOMODULO}"></Label>
+                  <Label Grid.Row="1"
+                           Grid.Column="1"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Cantidad:"></Label>
+                  <Label Grid.Row="1"
+                           Grid.Column="2"
+                           Grid.ColumnSpan="5"
+                           FontSize="Large"
+                           FontAttributes="None"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Text="{Binding Cantidad}"></Label>
+                  <Image Grid.Row="0"
+                           Grid.Column="0"
+                           Grid.RowSpan="2"
+                         Aspect="AspectFit"
+                         HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           Source="{Binding Image}">
+                  </Image>
+                </Grid>
+              </StackLayout>
+            </Frame>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+    <Button
+      VerticalOptions="EndAndExpand"     
+                    Command="{Binding CitaCommand}"
+                    HeightRequest="120"
+      FontSize="Large"
+                    Text="Agendar Cita con el Depósito"
+                    BackgroundColor="Blue"
+                    TextColor="White"
+                    >
+
+    </Button>
+
+  </StackLayout>
+  
+  
+</ContentPage>

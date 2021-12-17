@@ -1,0 +1,228 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="3.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="17.3.0.9-beta" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="18.1.0.42" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="4.0.0.190-beta" />
+    <PackageReference Include="Xam.Plugin.DeviceInfo" Version="4.1.1" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.6.2-beta" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="4.1.0-beta" />
+    <PackageReference Include="Xamarin.Controls.SignaturePad.Forms" Version="3.0.0" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.8.956" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1367" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="4.4.0.991265" />
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Fleet_App.Common\Fleet_App.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\ContactPage.xaml.cs">
+      <DependentUpon>ContactPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Cable\CableScanCode2Page.xaml.cs">
+      <DependentUpon>CableScanCode2Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Cable\CableScanCodePage.xaml.cs">
+      <DependentUpon>CableScanCodePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dtv\DtvMapPage.xaml.cs">
+      <DependentUpon>DtvMapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dtv\DtvPage.xaml.cs">
+      <DependentUpon>DtvPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dtv\DtvsPage.xaml.cs">
+      <DependentUpon>DtvsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Dtv\DtvCitaPage.xaml.cs">
+      <DependentUpon>DtvCitaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Prisma\PrismaMapPage.xaml.cs">
+      <DependentUpon>PrismaMapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Prisma\PrismaPage.xaml.cs">
+      <DependentUpon>PrismaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Prisma\PrismasPage.xaml.cs">
+      <DependentUpon>PrismasPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Tlc\TlcCitaPage.xaml.cs">
+      <DependentUpon>TlcCitaPage.xaml</DependentUpon>
+    </Compile>
+   
+    <Compile Update="Views\Tlc\TlcMapPage.xaml.cs">
+      <DependentUpon>TlcMapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Tlc\TlcPage.xaml.cs">
+      <DependentUpon>TlcPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Tlc\TlcsPage.xaml.cs">
+      <DependentUpon>TlcsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Cable\CableOtroRecuperoPage.xaml.cs">
+      <DependentUpon>CableOtroRecuperoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Tasa\TasaScanCodePage.xaml.cs">
+      <DependentUpon>TasaScanCodePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Teco\TecoOtherPicturePage.xaml.cs">
+      <DependentUpon>TecoOtherPicturePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Teco\TecoDniPicturePage.xaml.cs">
+      <DependentUpon>TecoDniPicturePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Teco\TecoCitaPage.xaml.cs">
+      <DependentUpon>TecoCitaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Teco\TecoMapPage.xaml.cs">
+      <DependentUpon>TecoMapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Teco\TecoPage.xaml.cs">
+      <DependentUpon>TecoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Teco\TecosMapPage.xaml.cs">
+      <DependentUpon>TecosMapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Teco\TecosPage.xaml.cs">
+      <DependentUpon>TecosPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\Aviso2Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AvisoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Cable\CableMapPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Cable\CablePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Cable\CablesMapPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Cable\CablesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CitaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DevolucionesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DNIPicture2Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DNIPicturePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\EstadisticasPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Firma2Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\FirmaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\FleetMasterDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Mis objetivos\Graph2Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Mis objetivos\Graph3Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Mis objetivos\Graph4Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Mis objetivos\GraphPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MapsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tasa\TasaOtroRecuperoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tasa\TasaScanCode2Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tasa\TasaScanCodePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\OrdersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Remotes\RemoteCitaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Remotes\RemoteMapPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Remotes\RemotePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Remotes\RemotesMapPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Remotes\RemotesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tasa\TasaCitaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Prisma\PrismaCitaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tlc\TlcCitaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tasa\TasaMapPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tlc\TlcMapPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tlc\TlcsMapPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tasa\TasaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tasa\TasasMapPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tasa\TasasPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Tlc\TlcCitaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:viewmodels="clr-namespace:BarcodeScanner.ViewModels;assembly=BarcodeScanner"
+             xmlns:local="clr-namespace:BarcodeScanner"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             x:Class="Fleet_App.Prism.Views.TasaScanCodePage"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             BackgroundColor="{StaticResource colorBackground}"
+             Title="{Binding Title}">
+
+  <StackLayout Padding="20">
+      <!-- Place new controls here -->
+      <Button Command="{Binding ButtonCommand}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="EndAndExpand"
+            BackgroundColor="Blue"
+            TextColor="White"
+            FontSize="Medium"
+            Text="Abrir scanner" />
+    <StackLayout Orientation="Horizontal">
+      <Label Text="Resultado:"
+           FontSize="Medium"
+           TextColor="Black"
+           HorizontalOptions="CenterAndExpand"
+           VerticalOptions="StartAndExpand" />
+      <Label Text="{Binding Result}"
+             FontSize="Medium"
+             TextColor="Blue"
+           HorizontalOptions="CenterAndExpand"
+           VerticalOptions="StartAndExpand" />
+    </StackLayout>
+
+    <StackLayout VerticalOptions="EndAndExpand">
+    <Button Text="GUARDAR"
+                  BackgroundColor="Purple"
+                  IsEnabled="{Binding IsEnabled}"
+                  Command="{Binding SaveCommand}"
+                  CornerRadius="23"
+                  TextColor="White"
+                  HorizontalOptions="FillAndExpand"></Button>
+    <Button Text="CANCELAR"
+                  BackgroundColor="Red"
+                  IsEnabled="{Binding IsEnabled}"
+                  Command="{Binding CancelCommand}"
+                  CornerRadius="23"
+                  TextColor="White"
+                  HorizontalOptions="FillAndExpand"></Button>
+  </StackLayout>
+
+     
+  </StackLayout>
+  </ContentPage>

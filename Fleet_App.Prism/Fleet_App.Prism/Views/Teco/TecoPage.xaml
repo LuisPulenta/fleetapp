@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             x:Class="Fleet_App.Prism.Views.Teco.TecoPage"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="{StaticResource colorBackground}"
+             Title="{Binding Title}">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Icon="ic_map"
+                 Command="{Binding RemoteMapCommand}" />
+  </ContentPage.ToolbarItems>
+  <ContentPage.Content>
+    <ScrollView>
+      <AbsoluteLayout>
+        <StackLayout Padding="5"
+                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All">
+          <Grid Padding="5,5">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row=" 0"
+                 Grid.Column="0 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Cliente:"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 0"
+                 Grid.Column="1 "
+                 Grid.ColumnSpan="4"
+                 FontSize="Micro"
+                 TextColor="Black"
+                 VerticalOptions="CenterAndExpand"
+                 Text="{Binding Remote.ClienteCompleto}"
+                 BackgroundColor="White"></Label>
+            <Label Grid.Row=" 1"
+                 Grid.Column="0 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Domicilio:"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 1"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="4"
+                 FontSize="Micro"
+                 TextColor="Black"
+                 VerticalOptions="CenterAndExpand"
+                 Text="{Binding Remote.DOMICILIO}"
+                 BackgroundColor="White"></Label>
+            <Label Grid.Row=" 2"
+                 Grid.Column="0 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Entre calles:"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 2"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="4"
+                 FontSize="Micro"
+                 TextColor="Black"
+                 VerticalOptions="CenterAndExpand"
+                 Text="{Binding Remote.EntreCalles}"
+                 BackgroundColor="White"></Label>
+            <Label Grid.Row=" 3"
+                 Grid.Column="0 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Localidad:"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 3"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 FontSize="Micro"
+                 TextColor="Black"
+                 VerticalOptions="CenterAndExpand"
+                 Text="{Binding Remote.LOCALIDAD}"
+                 BackgroundColor="White"></Label>
+            <Label Grid.Row=" 3"
+                 Grid.Column="3 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Cant.Controles Rem.:"
+                 TextColor="BlueViolet"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 3"
+                 Grid.Column="4"
+                 FontSize="Medium"
+                 FontAttributes="Bold"
+                 TextColor="Red"
+                 VerticalOptions="CenterAndExpand"
+                 Text="{Binding Remote.CantRem}"
+                 BackgroundColor="White"></Label>
+            <Label Grid.Row=" 4"
+                 Grid.Column="0 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Teléfono:"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 4"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="3"
+                 FontSize="Micro"
+                 TextColor="Black"
+                 VerticalOptions="Center"
+                 Text="{Binding Remote.TELEFONO}"
+                 BackgroundColor="White"></Label>
+
+
+
+            <Image Grid.Row=" 4"
+                 Grid.Column="4"
+                 WidthRequest="30"
+                 Source="phone.png">
+              <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding PhoneCallCommand}" />
+              </Image.GestureRecognizers>
+            </Image>
+          </Grid>
+
+          <BoxView Color="Black"
+                   HeightRequest="2"></BoxView>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row=" 0"
+                 Grid.Column="0 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="D.N.I."
+                 TextColor="Blue"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 0"
+                 Grid.Column="2 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 HorizontalOptions="Center"
+                 Text="Foto"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            
+            <Image 
+                 Grid.Row=" 1"
+                 Grid.Column="0 "
+                 HeightRequest="60"
+                 Source="{Binding ImageSource, Mode=TwoWay}">
+              <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding TakeDNICommand}" />
+              </Image.GestureRecognizers>
+            </Image>
+
+            <Image Grid.Row=" 1"
+                 Grid.Column="2"
+                 HeightRequest="60"
+                 Source="{Binding ImageSource2, Mode=TwoWay}">
+              <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding TakeFirmaCommand}" />
+              </Image.GestureRecognizers>
+            </Image>
+          </Grid>
+
+          <!--BOTONES CAMBIAR ESTADOS-->
+          <BoxView Color="Black"
+                 Margin="0"
+                 HeightRequest="2"></BoxView>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row=" 0"
+                 Grid.Column="0 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Est. Gaos:"
+                 TextColor="Blue"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 0"
+                 Grid.Column="1 "
+                 x:Name="label"
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 HorizontalOptions="Center"
+                 TextColor="Red"
+                 VerticalOptions="Center"
+                 Text="{Binding Remote.ESTADOGAOS, Mode=TwoWay}"
+                 BackgroundColor="White"></Label>
+            <Label Grid.Row=" 0"
+                 Grid.Column="2 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Cod.Cierre:"
+                 HorizontalOptions="Start"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row="0"
+                 Grid.Column="3"
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 HorizontalOptions="Start"
+                 TextColor="Red"
+                 VerticalOptions="CenterAndExpand"
+                 Text="{Binding Remote.CodigoCierre, Mode=TwoWay}"
+                 BackgroundColor="White"></Label>
+            <Label Grid.Row=" 0"
+                 Grid.Column="4 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Se entregan:"
+                 HorizontalOptions="Start"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Entry Grid.Row="0"
+                 Grid.Column="5"
+                 FontSize="Micro"
+                 Keyboard="Numeric"
+                 FontAttributes="Bold"
+                 Placeholder=""
+                 IsEnabled="{Binding IsEnabledParcial}"
+                 HorizontalOptions="Start"
+                 TextColor="Black"
+                 BackgroundColor="YellowGreen"
+                 VerticalOptions="CenterAndExpand"
+                 Text="{Binding Remote.CantEnt, Mode=TwoWay}"></Entry>
+
+          </Grid>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row=" 0"
+                  Grid.Column="0 "
+                  Text="Si a Todo"
+                  BackgroundColor="Green"
+                  IsEnabled="{Binding IsEnabled}"
+                  Clicked="OnButtonClicked"
+                  CornerRadius="20"
+                  HeightRequest="40"
+                  VerticalOptions="End"
+                  FontSize="Micro"
+                  TextColor="White"
+                  HorizontalOptions="FillAndExpand"></Button>
+            <Button Grid.Row=" 0"
+                  Grid.Column="1"
+                  Text="No a Todo"
+                  BackgroundColor="OrangeRed"
+                  IsEnabled="{Binding IsEnabled}"
+                  Clicked="OnButtonClicked2"
+                  CornerRadius="20"
+                  HeightRequest="40"
+                  VerticalOptions="End"
+                  FontSize="Micro"
+                  TextColor="White"
+                  HorizontalOptions="FillAndExpand"></Button>
+            <Button Grid.Row=" 0"
+                  Grid.Column="2"
+                  Text="Parcial"
+                  BackgroundColor="YellowGreen"
+                  IsEnabled="{Binding IsEnabledParcial}"
+                  Clicked="OnButtonClicked3"
+                  CornerRadius="20"
+                  HeightRequest="40"
+                  VerticalOptions="End"
+                  FontSize="Micro"
+                  TextColor="White"
+                  HorizontalOptions="FillAndExpand"></Button>
+          </Grid>
+          <BoxView Color="Black"
+                 HeightRequest="2"></BoxView>
+          <Picker x:Name="CodCierre"
+                FontSize="Small"
+                IsEnabled="False"
+                ItemDisplayBinding="{Binding Descripcion}"
+                ItemsSource="{Binding CodigosCierre}"
+                SelectedItem="{Binding CCierre}"
+                HeightRequest="40"
+                Title="Elija Código Cierre"></Picker>
+
+          <StackLayout Padding="10"
+                     Orientation="Horizontal"
+                     VerticalOptions="Start">
+            <Button Text="GUARDAR"
+                  BackgroundColor="Purple"
+                  IsEnabled="{Binding IsEnabled}"
+                  Command="{Binding SaveCommand}"
+                  CornerRadius="23"
+                  TextColor="White"
+                  HorizontalOptions="FillAndExpand"></Button>
+            <Button Text="CANCELAR"
+                  BackgroundColor="Red"
+                  IsEnabled="{Binding IsEnabled}"
+                  Command="{Binding CancelCommand}"
+                  CornerRadius="23"
+                  TextColor="White"
+                  HorizontalOptions="FillAndExpand"></Button>
+          </StackLayout>
+          <StackLayout>
+            <Label 
+                 FontSize="Micro"
+                 TextColor="Black"
+                 VerticalOptions="CenterAndExpand"
+                 Text="{Binding Remote.ObservacionCaptura}"
+                 BackgroundColor="White"></Label>
+            <Label FontSize="Micro"
+                 TextColor="Black"
+                 VerticalOptions="CenterAndExpand"
+                 Text="{Binding Remote.Novedades}"
+                 BackgroundColor="White"></Label>
+          </StackLayout>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row=" 0"
+                 Grid.Column="0 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Autonumérico"
+                 HorizontalOptions="Start"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 0"
+                 Grid.Column="1 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Cód. Cierre"
+                 HorizontalOptions="Start"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 0"
+                 Grid.Column="2 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Descripción"
+                 HorizontalOptions="Start"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+          </Grid>
+          <ListView 
+          ItemsSource="{Binding Controls}"
+          HasUnevenRows="True"
+          IsPullToRefreshEnabled="True"
+          RefreshCommand="{Binding RefreshCommand}"
+          IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+          SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell>
+                  <Grid>
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="*" />
+                      <ColumnDefinition Width="*" />
+                      <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                      <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row=" 0"
+                         Grid.Column="0 "
+                         FontSize="Micro"
+                         Text="{Binding Autonumerico}"
+                         HorizontalOptions="Start"
+                         TextColor="Black"
+                         VerticalOptions="Center"></Label>
+                    <Label Grid.Row=" 0"
+                         Grid.Column="1 "
+                         FontSize="Micro"
+                         Text="{Binding CodigoCierre}"
+                         HorizontalOptions="Start"
+                         TextColor="Black"
+                         VerticalOptions="Center"></Label>
+                    <Label Grid.Row=" 0"
+                         Grid.Column="2 "
+                         FontSize="Micro"
+                         Text="{Binding ControlesEquivalencia.DESCRIPCION}"
+                         HorizontalOptions="Start"
+                         TextColor="Black"
+                         VerticalOptions="Center"></Label>
+
+                  </Grid>
+
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+          </ListView>
+        </StackLayout>
+        <busyindicator:SfBusyIndicator AnimationType="ECG"
+                                     AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                                     AbsoluteLayout.LayoutFlags="All"
+                                     BackgroundColor="Transparent"
+                                     HorizontalOptions="Center"
+                                     TextColor="{StaticResource colorDanger}"
+                                     IsVisible="{Binding IsRunning}"
+                                     Title="Guardando..."
+                                     VerticalOptions="Center"
+                                     ViewBoxWidth="50"
+                                     ViewBoxHeight="50" />
+      </AbsoluteLayout>
+    </ScrollView>
+  </ContentPage.Content>
+</ContentPage>

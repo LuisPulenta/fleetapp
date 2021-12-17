@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Fleet_App.Prism.Views.HomePage"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             BackgroundColor="White"
+             Title="{Binding Title}">
+  <StackLayout HorizontalOptions="Center"
+               Padding="20">
+    <Image WidthRequest="350"
+           Source="logo.jpg"></Image>
+    <Label Text=""
+           TextColor="Blue"
+           FontAttributes="Bold"
+           FontSize="Large"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"></Label>
+    <Label Text="Bienvenido"
+           TextColor="Blue"
+           FontAttributes="Bold"
+           FontSize="Large"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"></Label>
+    <Label Text="{Binding User2.APELLIDONOMBRE, Mode=TwoWay}"
+           FontSize="Large"
+           TextColor="Blue"
+           FontAttributes="Bold"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"></Label>
+    
+
+  </StackLayout>
+</ContentPage>

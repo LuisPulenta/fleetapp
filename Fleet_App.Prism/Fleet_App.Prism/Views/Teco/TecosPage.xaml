@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Fleet_App.Prism.Views.Teco.TecosPage"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             BackgroundColor="Silver"
+             Title="{Binding Title}">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Icon="ic_action_today"
+                 Command="{Binding PonerHoyCommand}" />
+    <ToolbarItem Icon="ic_map"
+                 Command="{Binding RemotesMapCommand}" />
+  </ContentPage.ToolbarItems>
+  <StackLayout Padding="5">
+
+    <SearchBar Placeholder="Buscar..."
+                 BackgroundColor="White"
+                 CancelButtonColor="Orange"
+                 FontSize="Small"
+                 WidthRequest="200"
+                 Text="{Binding Filter}"
+                 TextChanged="SearchBar_TextChanged"
+                 HeightRequest="40">
+    </SearchBar>
+
+    <StackLayout Orientation="Horizontal"
+                   BackgroundColor="White"
+                   Padding="5">
+      <Label Text="Cantidad de Clientes:"
+               FontSize="Small"
+               TextColor="Blue"
+               FontAttributes="Bold"></Label>
+      <Label Text="{Binding CantRemotes}"
+               TextColor="Red"
+               FontSize="Small"
+               FontAttributes="Bold"></Label>
+    </StackLayout>
+    <ListView ItemsSource="{Binding Remotes}"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding RefreshCommand}"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                SeparatorVisibility="None">
+
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <Frame CornerRadius="10"
+                     HasShadow="True"
+                     BackgroundColor="White"
+                     Margin="3"
+                     Padding="5"
+                     >
+              <StackLayout 
+                  >
+                <Grid HeightRequest="232"
+                        RowSpacing="-0">
+                  <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectRemoteCommand}" />
+                  </Grid.GestureRecognizers>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="48" />
+                  </Grid.ColumnDefinitions>
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                  </Grid.RowDefinitions>
+
+                  <Label Grid.Row="0"
+                           Grid.Column="0"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Rec.Tec.:"></Label>
+                  <Label Grid.Row="0"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="5"
+                           FontSize="Micro"
+                           FontAttributes="None"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Text="{Binding RECUPIDJOBCARD}"></Label>
+
+                  <Label Grid.Row="0"
+                           Grid.Column="2"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Violet"
+                           Text="Cantidad:"></Label>
+                  <Label Grid.Row="0"
+                           Grid.Column="3"
+                           FontSize="Micro"
+                           FontAttributes="None"
+                           TextColor="Red"
+                           HorizontalOptions="Start"
+                           Text="{Binding CantRem}"></Label>
+                  
+                  <Label Grid.Row="1"
+                           Grid.Column="0"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Fec.Asig.:"></Label>
+                  <Label Grid.Row="1"
+                           Grid.Column="1"
+                           FontSize="Micro"
+                           FontAttributes="None"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Text="{Binding FechaAsignada, StringFormat='{0:dd/MM/yyyy}'}"></Label>
+
+                  <Label Grid.Row="1"
+                           Grid.Column="2"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Atraso:"></Label>
+                  <Label Grid.Row="1"
+                           Grid.Column="3"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Red"
+                         
+                           HorizontalOptions="Start"
+                           Text="{Binding Atraso.Days}"></Label>
+
+
+                  <Label Grid.Row="2"
+                           Grid.Column="0"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Cliente:"></Label>
+                  <Label Grid.Row="2"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="3"
+                           FontSize="Micro"
+                           FontAttributes="None"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Text="{Binding ClienteCompleto}"></Label>
+
+                  
+                  <Label Grid.Row="3"
+                           Grid.Column="0"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Dirección:"></Label>
+                  <Label Grid.Row="3"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="5"
+                           FontSize="Micro"
+                           FontAttributes="None"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Text="{Binding DOMICILIO}"></Label>
+                  <Label Grid.Row="4"
+                           Grid.Column="0"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Entre Calles:"></Label>
+                  <Label Grid.Row="4"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="3"
+                           FontSize="Micro"
+                           FontAttributes="None"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Text="{Binding EntreCalles}"></Label>
+                  <Label Grid.Row="5"
+                           Grid.Column="0"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Localidad:"></Label>
+                  <Label Grid.Row="5"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="5"
+                           FontSize="Micro"
+                           FontAttributes="None"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Text="{Binding LOCALIDAD}"></Label>
+                  <Label Grid.Row="6"
+                           Grid.Column="0"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Provincia:"></Label>
+                  <Label Grid.Row="6"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="5"
+                           FontSize="Micro"
+                           FontAttributes="None"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Text="{Binding PROVINCIA}"></Label>
+                  <Label Grid.Row="7"
+                           Grid.Column="0"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Teléfono:"></Label>
+                  <Label Grid.Row="7"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="5"
+                           FontSize="Micro"
+                           FontAttributes="None"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Text="{Binding TELEFONO}"></Label>
+                  
+                  <Label Grid.Row="8"
+                           Grid.Column="0"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Cód.Cierre:"></Label>
+                  <Label Grid.Row="8"
+                           Grid.Column="1"
+                           FontSize="Micro"
+                           FontAttributes="None"
+                           Grid.ColumnSpan="5"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Text="{Binding DescCR}"></Label>
+
+                  <Label Grid.Row="9"
+                           Grid.Column="0"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Est. Gaos:"></Label>
+                  <Label Grid.Row="9"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2"  
+                           FontSize="Micro"
+                           FontAttributes="None"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Text="{Binding ESTADOGAOS}"></Label>
+                  
+
+                  <!--<Label Grid.Row="10"
+                           Grid.Column="0"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Fec.Asig.:"></Label>
+                  <Label Grid.Row="10"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2"
+                           FontSize="Micro"
+                           FontAttributes="None"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Text="{Binding FechaAsignada, StringFormat='{0:dd/MM/yyyy}'}"></Label>-->
+                  <Label Grid.Row="10"
+                           Grid.Column="0"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Fec.Cita.:"></Label>
+                  <Label Grid.Row="10"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2"
+                           FontSize="Micro"
+                           FontAttributes="None"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Text="{Binding FechaCita, StringFormat='{0:dd/MM/yyyy/ HH:mm}'}"></Label>
+
+
+
+                  <Label Grid.Row="11"
+                           Grid.Column="0"
+                           FontSize="Micro"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           Text="Estado:"></Label>
+                  <Label Grid.Row="11"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2"
+                           FontSize="Micro"
+                           FontAttributes="None"
+                           TextColor="Black"
+                           HorizontalOptions="Start"
+                           Text="{Binding MOTIVOS}"></Label>
+
+
+
+
+
+
+                  <Button
+                           Grid.Row="9"
+                           Grid.Column="3" 
+                    Grid.RowSpan="3"
+                    Grid.ColumnSpan="3"
+                    MinimumHeightRequest="5"
+                    Command="{Binding CitaCommand}"
+                    HeightRequest="10"
+                    Text="Agendar Cita"
+                    BackgroundColor="Blue"
+                    TextColor="White"
+                    >
+
+                  </Button>
+
+
+
+
+
+
+                  <Image Grid.Row="0"
+                           Grid.Column="6"
+                           Grid.RowSpan="8"
+                           VerticalOptions="Center"
+                           Source="ic_chevron_right">
+                  </Image>
+                </Grid>
+              </StackLayout>
+            </Frame>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+
+  </StackLayout>
+
+</ContentPage>

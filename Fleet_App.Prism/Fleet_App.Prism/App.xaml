@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
+             x:Class="Fleet_App.Prism.App">
+	<Application.Resources>
+	
+    <!-- Colors -->
+    <Color x:Key="colorBackground">#F2F2F2</Color>
+    <Color x:Key="colorPrimary">#0468BF</Color>
+    <Color x:Key="colorSecondary">#067302</Color>
+    <Color x:Key="colorDanger">#D9042B</Color>
+    <Color x:Key="colorAccent">#BF4904</Color>
+    <Color x:Key="colorFont">#000000</Color>
+    <Color x:Key="colorFontInverse">#F2F2F2</Color>
+    <!-- Style Button -->
+    <Style TargetType="Button">
+      <Setter Property="BackgroundColor"
+              Value="{StaticResource colorPrimary}" />
+      <Setter Property="HorizontalOptions"
+              Value="FillAndExpand" />
+      <Setter Property="TextColor"
+              Value="{StaticResource colorFontInverse}" />
+      <Setter Property="CornerRadius"
+              Value="23" />
+    </Style>
+
+
+    <Style TargetType="Entry">
+      <Setter Property="BackgroundColor" Value="White" />
+    </Style>
+
+    <Style TargetType="Picker">
+      <Setter Property="BackgroundColor" Value="White" />
+    </Style>
+
+
+    <Style TargetType="DatePicker">
+      <Setter Property="BackgroundColor" Value="White" />
+    </Style>
+
+
+
+
+    <!-- Style Label -->
+    <Style TargetType="Label">
+      <Setter Property="TextColor"
+              Value="{StaticResource colorFont}" />
+    </Style>
+    <!-- Style Secondary Button -->
+    <Style x:Key="secondaryButton"
+           TargetType="Button">
+      <Setter Property="BackgroundColor"
+              Value="{StaticResource colorSecondary}" />
+    </Style>
+    <!-- Style Danger Button -->
+    <Style x:Key="dangerButton"
+           TargetType="Button">
+      <Setter Property="BackgroundColor"
+              Value="{StaticResource colorDanger}" />
+
+      
+
+
+    </Style>
+    <!-- Parameters -->
+
+
+
+    <x:String x:Key="UrlAPI">http://fleetsa.serveftp.net:88/FleetApiNew/</x:String>
+    <!-- <x:String x:Key="UrlAPI">https://localhost:44347/</x:String> -->
+
+
+    <x:String x:Key="AppVersion">3.0.66</x:String>
+
+    <!--<x:String x:Key="UrlAPI">http://keypress.serveftp.net:88/FleetApiPrueba/</x:String>-->
+    <!--<x:String x:Key="UrlAPI">http://190.221.174.70/Fleetsa/</x:String>-->
+
+  </Application.Resources>
+</prism:PrismApplication>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Fleet_App.Prism.Views.DNIPicture2Page"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="{StaticResource colorBackground}"
+             Title="{Binding Title}">
+
+  <ContentPage.Content>
+    <StackLayout Padding="10">
+      <StackLayout>
+        <Image WidthRequest="80"
+               HeightRequest="80"
+               Grid.Column="0"
+               HorizontalOptions="Start"
+               VerticalOptions="Start"
+               Source="ic_shortcut_add_a_photo.png">
+          <Image.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding TakeDNICommand}" />
+          </Image.GestureRecognizers>
+        </Image>
+        <Image WidthRequest="250"
+               HeightRequest="250"
+               Aspect="AspectFit"
+               HorizontalOptions="CenterAndExpand"
+               Source="{Binding ImageSource, Mode=TwoWay}"></Image>
+      </StackLayout>
+      <StackLayout>
+      </StackLayout>
+      <StackLayout>
+        <ActivityIndicator IsRunning="{Binding IsRunning}"></ActivityIndicator>
+      </StackLayout>
+      <StackLayout Orientation="Horizontal">
+        <Button Text="GUARDAR"
+                BackgroundColor="Purple"
+                IsEnabled="{Binding IsEnabled}"
+                Command="{Binding SaveCommand}"
+                CornerRadius="23"
+                TextColor="White"
+                HorizontalOptions="FillAndExpand"></Button>
+        <Button Text="CANCELAR"
+                BackgroundColor="Red"
+                IsEnabled="{Binding IsEnabled}"
+                Command="{Binding CancelCommand}"
+                CornerRadius="23"
+                TextColor="White"
+                HorizontalOptions="FillAndExpand"></Button>
+      </StackLayout>
+    </StackLayout>
+
+  </ContentPage.Content>
+
+</ContentPage>

@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             x:Class="Fleet_App.Prism.Views.TasaCitaPage"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             BackgroundColor="{StaticResource colorBackground}"
+             Title="{Binding Title}">
+
+
+  <ContentPage.Content>
+    <ScrollView>
+      <AbsoluteLayout>
+        <StackLayout Padding="5"
+                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All">
+          <Grid Padding="5,5"
+                RowSpacing="-0">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row=" 0"
+                 Grid.Column="0 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Cliente:"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 0"
+                 Grid.Column="1 "
+                 Grid.ColumnSpan="4"
+                 FontSize="Micro"
+                 TextColor="Black"
+                 VerticalOptions="CenterAndExpand"
+                 Text="{Binding Tasa.ClienteCompleto}"
+                 BackgroundColor="White"></Label>
+            <Label Grid.Row=" 1"
+                 Grid.Column="0 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Rec.Tec.:"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 1"
+                 Grid.Column="1 "
+                 Grid.ColumnSpan="4"
+                 FontSize="Micro"
+                 TextColor="Black"
+                 VerticalOptions="CenterAndExpand"
+                 Text="{Binding Tasa.ReclamoTecnicoID}"
+                 BackgroundColor="White"></Label>
+            <Label Grid.Row=" 2"
+                 Grid.Column="0 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Domicilio:"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 2"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="4"
+                 FontSize="Micro"
+                 TextColor="Black"
+                 VerticalOptions="CenterAndExpand"
+                 Text="{Binding Tasa.DOMICILIO}"
+                 BackgroundColor="White"></Label>
+            <Label Grid.Row=" 3"
+                 Grid.Column="0 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Localidad:"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 3"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 FontSize="Micro"
+                 TextColor="Black"
+                 VerticalOptions="CenterAndExpand"
+                 Text="{Binding Tasa.LOCALIDAD}"
+                 BackgroundColor="White"></Label>
+            <Label Grid.Row=" 3"
+                 Grid.Column="3 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Provincia:"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 3"
+                 Grid.Column="4"
+                 FontSize="Micro"
+                 TextColor="Black"
+                 HorizontalOptions="StartAndExpand"
+                 VerticalOptions="CenterAndExpand"
+                 Text="{Binding Tasa.PROVINCIA}"
+                 BackgroundColor="White"></Label>
+            <Label Grid.Row=" 4"
+                 Grid.Column="0 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Teléfono:"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 4"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="3"
+                 FontSize="Micro"
+                 TextColor="Black"
+                 VerticalOptions="Center"
+                 Text="{Binding Tasa.TELEFONO}"
+                 BackgroundColor="White"></Label>
+            <Image Grid.Row=" 4"
+                 Grid.Column="4"
+                 WidthRequest="30"
+                 Source="phone.png">
+              <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding PhoneCallCommand}" />
+              </Image.GestureRecognizers>
+            </Image>
+          </Grid>
+
+
+
+          <!--BOTONES CAMBIAR ESTADOS-->
+          <BoxView Color="Black"
+                 Margin="0"
+                 HeightRequest="2"></BoxView>
+          <Grid RowSpacing="-5">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row=" 0"
+                 Grid.Column="0 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Est. Gaos:"
+                 TextColor="Blue"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row=" 0"
+                 Grid.Column="1 "
+                 x:Name="label"
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 HorizontalOptions="Center"
+                 TextColor="Red"
+                 VerticalOptions="Center"
+                 Text="{Binding Tasa.ESTADOGAOS, Mode=TwoWay}"
+                 BackgroundColor="White"></Label>
+            <Label Grid.Row=" 0"
+                 Grid.Column="2 "
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 Text="Cod.Cierre:"
+                 HorizontalOptions="Start"
+                 TextColor="Blue"
+                 VerticalOptions="Center"></Label>
+            <Label Grid.Row="0"
+                 Grid.Column="3"
+                 FontSize="Micro"
+                 FontAttributes="Bold"
+                 HorizontalOptions="Start"
+                 TextColor="Red"
+                 VerticalOptions="CenterAndExpand"
+                 Text="{Binding Tasa.CodigoCierre, Mode=TwoWay}"
+                 BackgroundColor="White"></Label>
+
+          </Grid>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+
+          </Grid>
+          <BoxView Color="Black"
+                 HeightRequest="2"></BoxView>
+          <Label
+            Text="Medio de Cita:"
+            FontAttributes="Bold"
+            TextColor="Blue">
+          </Label>
+          <Picker x:Name="MedioCita"
+                FontSize="Large"
+                
+                ItemDisplayBinding="{Binding Descripcion}"
+                ItemsSource="{Binding MediosCita}"
+                SelectedItem="{Binding MedioCita}"
+                HeightRequest="50"
+                Title="Elija Medio Cita..."></Picker>
+          <Label
+            Text="Fecha Cita:"
+            FontAttributes="Bold"
+            TextColor="Blue">
+          </Label>
+          <DatePicker Grid.Row="4"
+                        Grid.Column="1"
+                        FontSize="Large"
+                        
+                        MinimumDate="{Binding Hoy}" 
+                        Date="{Binding FechaDeCita, StringFormat='{0:dd/MM/yyyy}'}" />
+
+          <Label
+            Text="Hora Cita:"
+            FontAttributes="Bold"
+            TextColor="Blue">
+          </Label>
+
+
+
+
+
+
+          <TimePicker Grid.Row="5"
+                        Grid.Column="1"
+                        FontSize="Large"
+                        
+                      Format="T"
+                        Time="{Binding HoraDeCita}" 
+                      
+                      
+                      />
+
+
+          <StackLayout Padding="5,0,5,0"
+                     Orientation="Horizontal"
+                     VerticalOptions="Start"
+                       Spacing="5">
+            <Button Text="GUARDAR"
+                  BackgroundColor="Purple"
+                  IsEnabled="{Binding IsEnabled}"
+                  Command="{Binding SaveCommand}"
+                  CornerRadius="23"
+                  TextColor="White"
+                  HorizontalOptions="FillAndExpand"></Button>
+            <Button Text="CANCELAR"
+                  BackgroundColor="Red"
+                  IsEnabled="{Binding IsEnabled}"
+                  Command="{Binding CancelCommand}"
+                  CornerRadius="23"
+                  TextColor="White"
+                  HorizontalOptions="FillAndExpand"></Button>
+          </StackLayout>
+
+
+
+
+        </StackLayout>
+        <busyindicator:SfBusyIndicator AnimationType="ECG"
+                                     AbsoluteLayout.LayoutBounds=".5,.75,.5,.5"
+                                     AbsoluteLayout.LayoutFlags="All"
+                                     BackgroundColor="Transparent"
+                                     HorizontalOptions="Center"
+                                     TextColor="{StaticResource colorDanger}"
+                                     IsVisible="{Binding IsRunning}"
+                                     Title="Guardando..."
+                                     VerticalOptions="Center"
+                                     ViewBoxWidth="50"
+                                     ViewBoxHeight="50" />
+      </AbsoluteLayout>
+
+    </ScrollView>
+  </ContentPage.Content>
+</ContentPage>

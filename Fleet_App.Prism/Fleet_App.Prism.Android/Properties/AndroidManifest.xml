@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="80" android:versionName="3.0.66" package="com.ssc2.fleetapp" android:installLocation="preferExternal">
+	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="30" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<application android:label="FleetApp" android:icon="@mipmap/ic_launcher" android:debuggable="false">
+		<provider android:name="android.support.v4.content.FileProvider" android:authorities="${applicationId}.fileprovider" android:exported="false" android:grantUriPermissions="true">
+			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
+		</provider>
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyAtxvXVhbzV9OTwZh8UxVsW2A58WYf-Btc" />
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyAtxvXVhbzV9OTwZh8UxVsW2A58WYf-Btc" />
+		<uses-library android:name="org.apache.http.legacy" android:required="false" />
+	</application>
+</manifest>

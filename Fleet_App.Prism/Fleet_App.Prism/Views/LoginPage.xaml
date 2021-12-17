@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Fleet_App.Prism.Views.LoginPage"
+             BackgroundColor="White"
+             Title="{Binding Title}">
+  <ScrollView>
+    <AbsoluteLayout>
+      <StackLayout Padding="10"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"
+                   AbsoluteLayout.LayoutFlags="All">
+        <Image Margin="20"
+               Source="logo"
+               WidthRequest="260"></Image>
+        <Label 
+               Text="{Binding AppVersion }"
+             TextColor="Navy"
+             Margin="20"
+             FontSize="Medium"
+             HorizontalOptions="CenterAndExpand"
+             VerticalOptions="Center"
+             FontAttributes="Bold"></Label>
+        <BoxView HeightRequest="3"
+               Color="{StaticResource colorPrimary}"></BoxView>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+          </Grid.ColumnDefinitions>
+          <Label Grid.Row=" 0"
+               Grid.Column="0 "
+               FontSize="Medium"
+               FontAttributes="Bold"
+               Text="Usuario:"
+               TextColor="Black"
+               VerticalOptions="Center"></Label>
+          <Entry Grid.Row=" 0"
+               Grid.Column="1 "
+               FontSize="Medium"
+               VerticalOptions="CenterAndExpand"
+               Keyboard="Email"
+               Text="{Binding Email, Mode=TwoWay }"
+               Placeholder=" Ingrese su Usuario..."
+               BackgroundColor="White"
+               TextColor="Black"></Entry>
+          <Label Grid.Row=" 1"
+               Grid.Column="0 "
+               FontSize="Medium"
+               FontAttributes="Bold"
+               Text="Contraseña:"
+               TextColor="Black"
+               VerticalOptions="Center"></Label>
+          <Entry Grid.Row=" 1"
+               Grid.Column="1 "
+               FontSize="Medium"
+               IsPassword="True"
+               Text="{Binding Password, Mode=TwoWay }"
+               VerticalOptions="CenterAndExpand"
+               Placeholder=" Ingrese su Contraseña..."
+               BackgroundColor="White"
+               TextColor="Black"></Entry>
+          <Label Grid.Row=" 2"
+                 Grid.Column="01 "
+                 Text=" "
+                 VerticalOptions="Center"/>
+        </Grid>
+
+        <StackLayout HorizontalOptions="Center"
+                     Orientation="Horizontal">
+
+          <Label VerticalOptions="Center"
+                 HorizontalOptions="StartAndExpand"
+                 FontSize="Medium"
+                 Text="Recordarme en este dispositivo:"/>
+          <CheckBox IsChecked="{Binding IsRemembered}" />
+        </StackLayout>
+
+
+        <StackLayout
+           VerticalOptions="EndAndExpand">
+          <Button Command="{Binding LoginCommand}"
+                  IsEnabled="{Binding IsEnabled}"
+                  FontSize="Large"
+                  FontAttributes="Bold"
+                  Text="Ingresar" />
+        </StackLayout>
+      </StackLayout>
+
+      <busyindicator:SfBusyIndicator AnimationType="ECG"
+                                     AbsoluteLayout.LayoutBounds=".5,.85,.5,.5"
+                                     AbsoluteLayout.LayoutFlags="All"
+                                     BackgroundColor="Transparent"
+                                     HorizontalOptions="Center"
+                                     TextColor="{StaticResource colorDanger}"
+                                     IsVisible="{Binding IsRunning}"
+                                     Title="Cargando..."
+                                     VerticalOptions="Center"
+                                     ViewBoxWidth="70"
+                                     ViewBoxHeight="70" />
+
+    </AbsoluteLayout>
+
+  </ScrollView>
+
+
+</ContentPage>

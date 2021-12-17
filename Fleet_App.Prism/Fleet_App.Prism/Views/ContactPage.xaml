@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Fleet_App.Prism.Views.ContactPage"
+             BackgroundColor="White"
+             Title="{Binding Title}">
+  <StackLayout Margin="5">
+    <Image
+        Margin="20"
+        Source="logo_keypress">
+    </Image>
+    <Label Margin="10"
+        Text="CONTACTO"
+             FontSize="Title"
+             HorizontalOptions="CenterAndExpand"
+             HorizontalTextAlignment="Center"
+             VerticalTextAlignment="Center"
+             HeightRequest="80"></Label>
+        <Label
+        Text="Key_Press Software Developers"
+        FontSize="Medium"
+        HorizontalOptions="CenterAndExpand"
+        HorizontalTextAlignment="Center"
+        VerticalTextAlignment="Center"
+        HeightRequest="40"
+        ></Label>
+      <Label
+          Text="Mistol 71 Mi Valle Golf, Va. Parque Sta. Ana"
+          FontSize="Medium"
+          HorizontalOptions="CenterAndExpand"
+          HorizontalTextAlignment="Center"
+          VerticalTextAlignment="Center"
+          HeightRequest="40"
+      ></Label>
+      <Label
+          Text="Córdoba - Argentina (5101)"
+          FontSize="Medium"
+          HorizontalOptions="CenterAndExpand"
+          HorizontalTextAlignment="Center"
+          VerticalTextAlignment="Center"
+          HeightRequest="40"
+      ></Label>
+      <Label
+          Text="+54 9 3513002255"
+          FontSize="Medium"
+          HorizontalOptions="CenterAndExpand"
+          HorizontalTextAlignment="Center"
+          VerticalTextAlignment="Center"
+          HeightRequest="40"
+      ></Label>
+      <Label
+          Text="info@keypress.com.ar"
+          FontSize="Medium"
+          HorizontalOptions="CenterAndExpand"
+          HorizontalTextAlignment="Center"
+          VerticalTextAlignment="Center"
+          HeightRequest="40"
+      ></Label>
+      <Label
+          Text="www.keypress.com.ar"
+          FontSize="Medium"
+          HorizontalOptions="CenterAndExpand"
+          HorizontalTextAlignment="Center"
+          VerticalTextAlignment="Center"
+          HeightRequest="40"
+      ></Label>
+    </StackLayout>
+
+
+</ContentPage>
