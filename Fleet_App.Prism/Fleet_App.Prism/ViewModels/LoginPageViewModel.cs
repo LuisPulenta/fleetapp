@@ -30,10 +30,9 @@ namespace Fleet_App.Prism.ViewModels
             _navigationService = navigationService;
             _apiService = apiService;
             AppVersion = $"V.{App.Current.Resources["AppVersion"].ToString()}";
-            //Email = "TEST";
-            //Password = "TEST";
-            //Email = "ANADAL";
-            //Password = "123456";
+            Email = "TEST";
+            Password = "TEST";
+            
         }
 
         public DelegateCommand LoginCommand => _loginCommand ?? (_loginCommand = new DelegateCommand(Login));
@@ -138,43 +137,43 @@ namespace Fleet_App.Prism.ViewModels
             var IdUserActual = $"{response.Result.IDUser}";
 
 
-            var webSesion = new WebSesionRequest
-            {
-                CONECTAVERAGE = 0,
-                IP = $"{CrossDeviceInfo.Current.Id}",             //   // Poner IP o IMEI     {CrossDeviceInfo.Current.DeviceName}
-                LOGINDATE = DateTime.Now,
-                LOGINTIME = Convert.ToInt32(DateTime.Now.ToString("hhmmss")),
-                LOGOUTDATE = null,
-                LOGOUTTIME = 0,
-                MODULO = "App",
-                NROCONEXION = Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd")) + Convert.ToInt32(DateTime.Now.ToString("hhmmss")),
-                USUARIO = IdUserActual,
-            };
+            //var webSesion = new WebSesionRequest
+            //{
+            //    CONECTAVERAGE = 0,
+            //    IP = $"{CrossDeviceInfo.Current.Id}",             //   // Poner IP o IMEI     {CrossDeviceInfo.Current.DeviceName}
+            //    LOGINDATE = DateTime.Now,
+            //    LOGINTIME = Convert.ToInt32(DateTime.Now.ToString("hhmmss")),
+            //    LOGOUTDATE = null,
+            //    LOGOUTTIME = 0,
+            //    MODULO = "App",
+            //    NROCONEXION = Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd")) + Convert.ToInt32(DateTime.Now.ToString("hhmmss")),
+            //    USUARIO = IdUserActual,
+            //};
 
-            var url2 = App.Current.Resources["UrlAPI"].ToString();
-            var response3 = await _apiService.PostAsync(
-               url2,
-                "api",
-                "/WebSesions",
-                webSesion);
-            if (!response3.IsSuccess)
-            {
-                await App.Current.MainPage.DisplayAlert("Error", "No se pudo registrar Ingreso del Usuario.", "Aceptar");
-                IsRunning = false;
-                IsEnabled = true;
-                return;
-            }
+            //var url2 = App.Current.Resources["UrlAPI"].ToString();
+            //var response3 = await _apiService.PostAsync(
+            //   url2,
+            //    "api",
+            //    "/WebSesions",
+            //    webSesion);
+            //if (!response3.IsSuccess)
+            //{
+            //    await App.Current.MainPage.DisplayAlert("Error", "No se pudo registrar Ingreso del Usuario.", "Aceptar");
+            //    IsRunning = false;
+            //    IsEnabled = true;
+            //    return;
+            //}
 
-            var response4 = await _apiService.GetLastWebSesion(
-                         url,
-                         "api",
-                         "/WebSesions/GetLastWebSesion",
-                         webSesion.NROCONEXION);
+            //var response4 = await _apiService.GetLastWebSesion(
+            //             url,
+            //             "api",
+            //             "/WebSesions/GetLastWebSesion",
+            //             webSesion.NROCONEXION);
 
-            if (response4.IsSuccess)
-            {
-                NroIngreso = (WebSesionRequest)response4.Result;
-            }
+            //if (response4.IsSuccess)
+            //{
+            //    NroIngreso = (WebSesionRequest)response4.Result;
+            //}
 
 
             

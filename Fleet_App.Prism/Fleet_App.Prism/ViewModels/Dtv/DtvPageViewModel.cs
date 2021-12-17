@@ -802,33 +802,49 @@ namespace Fleet_App.Prism.ViewModels
             }
         }
         private async void PhoneCall()
+
         {
-            await Clipboard.SetTextAsync(Dtv.TELEFONO);
-            PhoneDialer.Open(Dtv.TELEFONO);
+        if (!String.IsNullOrEmpty(Dtv.TELEFONO))
+            {
+                await Clipboard.SetTextAsync(Dtv.TELEFONO);
+                PhoneDialer.Open(Dtv.TELEFONO);
+            }
         }
 
         private async void PhoneCall1()
         {
-            await Clipboard.SetTextAsync(Dtv.TelefAlternativo1);
-            PhoneDialer.Open(Dtv.TelefAlternativo1);
+            if (!String.IsNullOrEmpty(Dtv.TelefAlternativo1))
+            {
+                await Clipboard.SetTextAsync(Dtv.TelefAlternativo1);
+                PhoneDialer.Open(Dtv.TelefAlternativo1);
+            }
         }
 
         private async void PhoneCall2()
         {
-            await Clipboard.SetTextAsync(Dtv.TelefAlternativo2);
-            PhoneDialer.Open(Dtv.TelefAlternativo2);
+            if (!String.IsNullOrEmpty(Dtv.TelefAlternativo2))
+            {
+                await Clipboard.SetTextAsync(Dtv.TelefAlternativo2);
+                PhoneDialer.Open(Dtv.TelefAlternativo2);
+            }
         }
 
         private async void PhoneCall3()
         {
-            await Clipboard.SetTextAsync(Dtv.TelefAlternativo3);
-            PhoneDialer.Open(Dtv.TelefAlternativo3);
+            if (!String.IsNullOrEmpty(Dtv.TelefAlternativo3))
+            {
+                await Clipboard.SetTextAsync(Dtv.TelefAlternativo3);
+                PhoneDialer.Open(Dtv.TelefAlternativo3);
+            }
         }
 
         private async void PhoneCall4()
         {
-            await Clipboard.SetTextAsync(Dtv.TelefAlternativo4);
-            PhoneDialer.Open(Dtv.TelefAlternativo4);
+            if (!String.IsNullOrEmpty(Dtv.TelefAlternativo4))
+            {
+                await Clipboard.SetTextAsync(Dtv.TelefAlternativo4);
+                PhoneDialer.Open(Dtv.TelefAlternativo4);
+            }
         }
 
         private async void Cancel()

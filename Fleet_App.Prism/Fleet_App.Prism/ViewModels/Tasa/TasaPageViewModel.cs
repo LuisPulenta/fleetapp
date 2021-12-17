@@ -804,32 +804,47 @@ namespace Fleet_App.Prism.ViewModels
         }
         private async void PhoneCall()
         {
-            await Clipboard.SetTextAsync(Tasa.TELEFONO);
-            PhoneDialer.Open(Tasa.TELEFONO);
+            if(!String.IsNullOrEmpty(Tasa.TELEFONO))
+            {
+                await Clipboard.SetTextAsync(Tasa.TELEFONO);
+                PhoneDialer.Open(Tasa.TELEFONO);
+            }
         }
 
         private async void PhoneCall1()
         {
-            await Clipboard.SetTextAsync(Tasa.TelefAlternativo1);
-            PhoneDialer.Open(Tasa.TelefAlternativo1);
+            if (!String.IsNullOrEmpty(Tasa.TelefAlternativo1))
+            {
+                await Clipboard.SetTextAsync(Tasa.TelefAlternativo1);
+                PhoneDialer.Open(Tasa.TelefAlternativo1);
+            }            
         }
 
         private async void PhoneCall2()
         {
-            await Clipboard.SetTextAsync(Tasa.TelefAlternativo2);
-            PhoneDialer.Open(Tasa.TelefAlternativo2);
+            if (!String.IsNullOrEmpty(Tasa.TelefAlternativo2))
+            {
+                await Clipboard.SetTextAsync(Tasa.TelefAlternativo2);
+                PhoneDialer.Open(Tasa.TelefAlternativo2);
+            }
         }
 
         private async void PhoneCall3()
         {
-            await Clipboard.SetTextAsync(Tasa.TelefAlternativo3);
-            PhoneDialer.Open(Tasa.TelefAlternativo3);
+            if (!String.IsNullOrEmpty(Tasa.TelefAlternativo3))
+            {
+                await Clipboard.SetTextAsync(Tasa.TelefAlternativo3);
+                PhoneDialer.Open(Tasa.TelefAlternativo3);
+            }
         }
 
         private async void PhoneCall4()
         {
-            await Clipboard.SetTextAsync(Tasa.TelefAlternativo4);
-            PhoneDialer.Open(Tasa.TelefAlternativo4);
+            if (!String.IsNullOrEmpty(Tasa.TelefAlternativo4))
+            {
+                await Clipboard.SetTextAsync(Tasa.TelefAlternativo4);
+                PhoneDialer.Open(Tasa.TelefAlternativo4);
+            }
         }
 
         private async void Cancel()

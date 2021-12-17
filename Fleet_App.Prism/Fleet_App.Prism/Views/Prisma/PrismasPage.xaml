@@ -260,7 +260,7 @@
                     MinimumHeightRequest="5"
                     Command="{Binding PrismaCitaCommand}"
                     HeightRequest="10"
-                    Text="AgendarCita"
+                    Text="Agendar Cita"
                     BackgroundColor="Blue"
                     TextColor="White"
                     >

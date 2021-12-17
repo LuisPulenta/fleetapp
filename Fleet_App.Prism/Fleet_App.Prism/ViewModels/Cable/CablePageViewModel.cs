@@ -682,32 +682,47 @@ namespace Fleet_App.Prism.ViewModels
         }
         private async void PhoneCall()
         {
-            await Clipboard.SetTextAsync(Cable.TELEFONO);
-            PhoneDialer.Open(Cable.TELEFONO);
+            if(!String.IsNullOrEmpty(Cable.TELEFONO))
+            {
+                await Clipboard.SetTextAsync(Cable.TELEFONO);
+                PhoneDialer.Open(Cable.TELEFONO);
+            }            
         }
 
         private async void PhoneCall1()
         {
-            await Clipboard.SetTextAsync(Cable.TelefAlternativo1);
-            PhoneDialer.Open(Cable.TelefAlternativo1);
+            if (!String.IsNullOrEmpty(Cable.TelefAlternativo1))
+            {
+                await Clipboard.SetTextAsync(Cable.TelefAlternativo1);
+                PhoneDialer.Open(Cable.TelefAlternativo1);
+            }
         }
 
         private async void PhoneCall2()
         {
-            await Clipboard.SetTextAsync(Cable.TelefAlternativo2);
-            PhoneDialer.Open(Cable.TelefAlternativo2);
+            if (!String.IsNullOrEmpty(Cable.TelefAlternativo2))
+            {
+                await Clipboard.SetTextAsync(Cable.TelefAlternativo2);
+                PhoneDialer.Open(Cable.TelefAlternativo2);
+            }
         }
 
         private async void PhoneCall3()
         {
-            await Clipboard.SetTextAsync(Cable.TelefAlternativo3);
-            PhoneDialer.Open(Cable.TelefAlternativo3);
+            if (!String.IsNullOrEmpty(Cable.TelefAlternativo3))
+            {
+                await Clipboard.SetTextAsync(Cable.TelefAlternativo3);
+                PhoneDialer.Open(Cable.TelefAlternativo3);
+            }
         }
 
         private async void PhoneCall4()
         {
-            await Clipboard.SetTextAsync(Cable.TelefAlternativo4);
-            PhoneDialer.Open(Cable.TelefAlternativo4);
+            if (!String.IsNullOrEmpty(Cable.TelefAlternativo4))
+            {
+                await Clipboard.SetTextAsync(Cable.TelefAlternativo4);
+                PhoneDialer.Open(Cable.TelefAlternativo4);
+            }
         }
 
         private async void Cancel()

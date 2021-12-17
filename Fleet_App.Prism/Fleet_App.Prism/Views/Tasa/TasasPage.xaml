@@ -60,7 +60,7 @@
                      >
               <StackLayout 
                   >
-                <Grid HeightRequest="190"
+                <Grid HeightRequest="210"
                         RowSpacing="-0">
                   <Grid.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding SelectTasaCommand}" />

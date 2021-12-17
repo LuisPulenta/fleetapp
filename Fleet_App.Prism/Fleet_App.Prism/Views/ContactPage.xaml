@@ -28,7 +28,7 @@
         ></Label>
       <Label
           Text="Mistol 71 Mi Valle Golf, Va. Parque Sta. Ana"
-          FontSize="Medium"
+          FontSize="Small"
           HorizontalOptions="CenterAndExpand"
           HorizontalTextAlignment="Center"
           VerticalTextAlignment="Center"
@@ -36,7 +36,7 @@
       ></Label>
       <Label
           Text="Córdoba - Argentina (5101)"
-          FontSize="Medium"
+          FontSize="Small"
           HorizontalOptions="CenterAndExpand"
           HorizontalTextAlignment="Center"
           VerticalTextAlignment="Center"
@@ -44,7 +44,7 @@
       ></Label>
       <Label
           Text="+54 9 3513002255"
-          FontSize="Medium"
+          FontSize="Small"
           HorizontalOptions="CenterAndExpand"
           HorizontalTextAlignment="Center"
           VerticalTextAlignment="Center"
@@ -52,7 +52,7 @@
       ></Label>
       <Label
           Text="info@keypress.com.ar"
-          FontSize="Medium"
+          FontSize="Small"
           HorizontalOptions="CenterAndExpand"
           HorizontalTextAlignment="Center"
           VerticalTextAlignment="Center"
@@ -60,7 +60,7 @@
       ></Label>
       <Label
           Text="www.keypress.com.ar"
-          FontSize="Medium"
+          FontSize="Small"
           HorizontalOptions="CenterAndExpand"
           HorizontalTextAlignment="Center"
           VerticalTextAlignment="Center"

@@ -96,7 +96,8 @@ namespace Fleet_App.Prism.ViewModels
         private DelegateCommand _phoneCallCommand1;
         private DelegateCommand _phoneCallCommand2;
         private DelegateCommand _phoneCallCommand3;
-       
+        private DelegateCommand _phoneCallCommand4;
+
 
         public DelegateCommand CableMapCommand => _TlcMapCommand ?? (_TlcMapCommand = new DelegateCommand(TlcMap));
         public DelegateCommand CancelCommand => _cancelCommand ?? (_cancelCommand = new DelegateCommand(Cancel));
@@ -105,6 +106,7 @@ namespace Fleet_App.Prism.ViewModels
         public DelegateCommand PhoneCallCommand1 => _phoneCallCommand1 ?? (_phoneCallCommand1 = new DelegateCommand(PhoneCall1));
         public DelegateCommand PhoneCallCommand2 => _phoneCallCommand2 ?? (_phoneCallCommand2 = new DelegateCommand(PhoneCall2));
         public DelegateCommand PhoneCallCommand3 => _phoneCallCommand3 ?? (_phoneCallCommand3 = new DelegateCommand(PhoneCall3));
+        public DelegateCommand PhoneCallCommand4 => _phoneCallCommand4 ?? (_phoneCallCommand3 = new DelegateCommand(PhoneCall4));
 
 
         public DelegateCommand ElijeTodosCommand => _elijeTodosCommand ?? (_elijeTodosCommand = new DelegateCommand(ElijeTodos));
@@ -633,26 +635,47 @@ namespace Fleet_App.Prism.ViewModels
         }
         private async void PhoneCall()
         {
-            await Clipboard.SetTextAsync(Tlc.TELEFONO);
-            PhoneDialer.Open(Tlc.TELEFONO);
+            if (!String.IsNullOrEmpty(Tlc.TELEFONO))
+            {
+                await Clipboard.SetTextAsync(Tlc.TELEFONO);
+                PhoneDialer.Open(Tlc.TELEFONO);
+            }
         }
 
         private async void PhoneCall1()
         {
-            await Clipboard.SetTextAsync(Tlc.TelefAlternativo1);
-            PhoneDialer.Open(Tlc.TelefAlternativo1);
+            if (!String.IsNullOrEmpty(Tlc.TelefAlternativo1))
+            {
+                await Clipboard.SetTextAsync(Tlc.TelefAlternativo1);
+                PhoneDialer.Open(Tlc.TelefAlternativo1);
+            }
         }
 
         private async void PhoneCall2()
         {
-            await Clipboard.SetTextAsync(Tlc.TelefAlternativo2);
-            PhoneDialer.Open(Tlc.TelefAlternativo2);
+            if (!String.IsNullOrEmpty(Tlc.TelefAlternativo2))
+            {
+                await Clipboard.SetTextAsync(Tlc.TelefAlternativo2);
+                PhoneDialer.Open(Tlc.TelefAlternativo2);
+            }
         }
 
         private async void PhoneCall3()
         {
-            await Clipboard.SetTextAsync(Tlc.TelefAlternativo3);
-            PhoneDialer.Open(Tlc.TelefAlternativo3);
+            if (!String.IsNullOrEmpty(Tlc.TelefAlternativo3))
+            {
+                await Clipboard.SetTextAsync(Tlc.TelefAlternativo3);
+                PhoneDialer.Open(Tlc.TelefAlternativo3);
+            }
+        }
+
+        private async void PhoneCall4()
+        {
+            if (!String.IsNullOrEmpty(Tlc.TelefAlternativo4))
+            {
+                await Clipboard.SetTextAsync(Tlc.TelefAlternativo4);
+                PhoneDialer.Open(Tlc.TelefAlternativo4);
+            }
         }
 
         private async void Cancel()

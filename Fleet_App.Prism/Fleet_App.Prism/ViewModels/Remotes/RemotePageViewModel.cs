@@ -722,10 +722,13 @@ namespace Fleet_App.Prism.ViewModels
       
         private async void PhoneCall()
         {
-            await Clipboard.SetTextAsync(Remote.TELEFONO);
-            PhoneDialer.Open(Remote.TELEFONO);
+            if (!String.IsNullOrEmpty(Remote.TELEFONO))
+            {
+                await Clipboard.SetTextAsync(Remote.TELEFONO);
+                PhoneDialer.Open(Remote.TELEFONO);
+            }
+                
         }
 
-        
     }
 }
