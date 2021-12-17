@@ -92,7 +92,8 @@ namespace Fleet_App.Web.Controllers.API
                r.Evento3,
                r.FechaEvento3,
                r.Evento4,
-               r.FechaEvento4
+               r.FechaEvento4,
+               r.Observacion
 
 
 
@@ -134,6 +135,7 @@ namespace Fleet_App.Web.Controllers.API
                FechaEvento3 = g.Key.FechaEvento3,
                Evento4 = g.Key.Evento4,
                FechaEvento4 = g.Key.FechaEvento4,
+               Observacion=g.Key.Observacion,
 
                CantRem = g.Count(),
            }).ToListAsync();
@@ -203,7 +205,7 @@ namespace Fleet_App.Web.Controllers.API
                r.FechaEvento3,
                r.Evento4,
                r.FechaEvento4,
-
+               r.Observacion,
                r.TelefAlternativo1,
                r.TelefAlternativo2,
                r.TelefAlternativo3,
@@ -246,7 +248,7 @@ namespace Fleet_App.Web.Controllers.API
                FechaEvento3 = g.Key.FechaEvento3,
                Evento4 = g.Key.Evento4,
                FechaEvento4 = g.Key.FechaEvento4,
-
+               Observacion = g.Key.Observacion,
                TelefAlternativo1 = g.Key.TelefAlternativo1,
                TelefAlternativo2 = g.Key.TelefAlternativo2,
                TelefAlternativo3 = g.Key.TelefAlternativo3,
@@ -280,14 +282,7 @@ namespace Fleet_App.Web.Controllers.API
                
            .Where(o => (o.UserID == UserID) 
                         && (o.PROYECTOMODULO == "Tasa") 
-                        && (
-                            (o.ESTADOGAOS == "PEN") || (o.ESTADOGAOS == "INC")
-                        && o.CodigoCierre != 44
-
-                        && ((o.CodigoCierre <= 50)
-                        && (o.CodigoCierre > 40))
-
-                            )
+                        && (o.ESTADOGAOS == "PEN" || o.ESTADOGAOS == "INC" && o.CodigoCierre != 44 && o.CodigoCierre <= 50 && o.CodigoCierre > 40)
                         )
            .OrderBy(o => o.RECUPIDJOBCARD)
            .GroupBy(r => new
@@ -327,6 +322,7 @@ namespace Fleet_App.Web.Controllers.API
                r.Evento4,
                r.FechaEvento4,
                r.MODELO,
+               r.Observacion,
                
                r.TelefAlternativo1,
                r.TelefAlternativo2,
@@ -370,6 +366,7 @@ namespace Fleet_App.Web.Controllers.API
                Evento4 = g.Key.Evento4,
                FechaEvento4 = g.Key.FechaEvento4,
                //Modelo = g.Modelo,
+               Observacion=g.Key.Observacion,
                TelefAlternativo1 = g.Key.TelefAlternativo1,
                TelefAlternativo2 = g.Key.TelefAlternativo2,
                TelefAlternativo3 = g.Key.TelefAlternativo3,
@@ -482,7 +479,7 @@ namespace Fleet_App.Web.Controllers.API
                r.CodigoCierre,
                r.ObservacionCaptura,
                r.Novedades,
-
+               r.Observacion,
                r.PROVINCIA,
                r.ReclamoTecnicoID,
                r.Motivos,
@@ -526,7 +523,7 @@ namespace Fleet_App.Web.Controllers.API
                FechaCita = g.Key.FechaCita,
                MedioCita = g.Key.MedioCita,
                NroSeriesExtras = g.Key.NroSeriesExtras,
-
+               Observacion = g.Key.Observacion,
                Evento1 = g.Key.Evento1,
                FechaEvento1 = g.Key.FechaEvento1,
                Evento2 = g.Key.Evento2,

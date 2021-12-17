@@ -10,6 +10,7 @@
 	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="{com.ssc2.fleetapp}.permission.MAPS_RECEIVE" />
 	<application android:label="FleetApp" android:icon="@mipmap/ic_launcher" android:debuggable="false">
 		<provider android:name="android.support.v4.content.FileProvider" android:authorities="${applicationId}.fileprovider" android:exported="false" android:grantUriPermissions="true">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
