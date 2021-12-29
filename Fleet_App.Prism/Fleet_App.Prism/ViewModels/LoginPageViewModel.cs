@@ -30,8 +30,8 @@ namespace Fleet_App.Prism.ViewModels
             _navigationService = navigationService;
             _apiService = apiService;
             AppVersion = $"V.{App.Current.Resources["AppVersion"].ToString()}";
-            Email = "TEST";
-            Password = "TEST";
+            //Email = "TEST";
+            //Password = "TEST";
             
         }
 
