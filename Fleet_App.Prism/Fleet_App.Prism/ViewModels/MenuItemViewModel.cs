@@ -28,31 +28,31 @@ namespace Fleet_App.Prism.ViewModels
         {
             if (PageName.Equals("LoginPage"))
             {
-                var ing = JsonConvert.DeserializeObject<Ingreso>(Settings.Ingreso);
+                //var ing = JsonConvert.DeserializeObject<Ingreso>(Settings.Ingreso);
 
 
                 
-                var webSesion = new WebSesionRequest
-                {
-                    ID_WS = ing.ID_WS,
-                    CONECTAVERAGE = ing.CONECTAVERAGE,
-                    IP = ing.IP,
-                    LOGINDATE = ing.LOGINDATE,
-                    LOGINTIME = ing.LOGINTIME,
-                    LOGOUTDATE = DateTime.Now,
-                    LOGOUTTIME = Convert.ToInt32(DateTime.Now.ToString("hhmmss")),
-                    MODULO = ing.MODULO,
-                    NROCONEXION = ing.NROCONEXION,
-                    USUARIO = ing.USUARIO,
-                };
+                //var webSesion = new WebSesionRequest
+                //{
+                //    ID_WS = ing.ID_WS,
+                //    CONECTAVERAGE = ing.CONECTAVERAGE,
+                //    IP = ing.IP,
+                //    LOGINDATE = ing.LOGINDATE,
+                //    LOGINTIME = ing.LOGINTIME,
+                //    LOGOUTDATE = DateTime.Now,
+                //    LOGOUTTIME = Convert.ToInt32(DateTime.Now.ToString("hhmmss")),
+                //    MODULO = ing.MODULO,
+                //    NROCONEXION = ing.NROCONEXION,
+                //    USUARIO = ing.USUARIO,
+                //};
 
-                var url = App.Current.Resources["UrlAPI"].ToString();
-                var response3 = await _apiService.PutAsync(
-                    url,
-                    "api",
-                    "/WebSesions",
-                    webSesion,
-                    ing.NROCONEXION);
+                //var url = App.Current.Resources["UrlAPI"].ToString();
+                //var response3 = await _apiService.PutAsync(
+                //    url,
+                //    "api",
+                //    "/WebSesions",
+                //    webSesion,
+                //    ing.NROCONEXION);
                 Settings.IsRemembered = false;
                 await _navigationService.NavigateAsync("/NavigationPage/LoginPage");
                 return;
