@@ -60,6 +60,9 @@
     <Compile Update="Views\Prisma\PrismasPage.xaml.cs">
       <DependentUpon>PrismasPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Tasa\DtvScanCode2Page.xaml.cs">
+      <DependentUpon>DtvScanCode2Page.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Tlc\TlcCitaPage.xaml.cs">
       <DependentUpon>TlcCitaPage.xaml</DependentUpon>
     </Compile>
@@ -131,6 +134,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\DNIPicturePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Dtv\DtvOtroRecuperoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\EstadisticasPage.xaml">

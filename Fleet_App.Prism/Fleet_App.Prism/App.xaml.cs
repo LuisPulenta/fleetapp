@@ -108,18 +108,10 @@ namespace Fleet_App.Prism
             containerRegistry.RegisterForNavigation<Graph3Page, Graph3PageViewModel>();
             containerRegistry.RegisterForNavigation<TasaScanCodePage, ViewModels.CableScanCodePageViewModel>();
             containerRegistry.RegisterForNavigation<DevolucionesPage, DevolucionesPageViewModel>();
-
             containerRegistry.RegisterForNavigation<TasaOtroRecuperoPage, TasaOtroRecuperoPageViewModel>();
             containerRegistry.RegisterForNavigation<TasaScanCode2Page, TasaScanCode2PageViewModel>();
-
-            //containerRegistry.RegisterForNavigation<DtvScanCode2Page, DtvScanCode2PageViewModel>();
-            
             containerRegistry.RegisterForNavigation<Graph4Page, Graph4PageViewModel>();
-
-
             containerRegistry.RegisterForNavigation<CableScanCodePage, ViewModels.Cable.CableScanCodePageViewModel>();
-
-            // TECO
             containerRegistry.RegisterForNavigation<TecoCitaPage, TecoCitaPageViewModel>();
             containerRegistry.RegisterForNavigation<TecoMapPage, TecoMapPageViewModel>();
             containerRegistry.RegisterForNavigation<TecoPage, TecoPageViewModel>();
@@ -127,10 +119,9 @@ namespace Fleet_App.Prism
             containerRegistry.RegisterForNavigation<TecosPage, TecosPageViewModel>();
             containerRegistry.RegisterForNavigation<TecoDniPicturePage, TecoDniPicturePageViewModel>();
             containerRegistry.RegisterForNavigation<TecoOtherPicturePage, TecoOtherPicturePageViewModel>();
-
-
-
             containerRegistry.RegisterForNavigation<ContactPage, ContactPageViewModel>();
+            containerRegistry.RegisterForNavigation<DtvOtroRecuperoPage, DtvOtroRecuperoPageViewModel>();
+            containerRegistry.RegisterForNavigation<DtvScanCode2Page, DtvScanCode2PageViewModel>();
 
         }
     }

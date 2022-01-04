@@ -365,6 +365,13 @@
                   CornerRadius="23"
                   TextColor="White"
                   HorizontalOptions="FillAndExpand"></Button>
+                        <Button Text="OTRO RECUPERO"
+                  BackgroundColor="Blue"
+                  IsEnabled="{Binding IsEnabled}"
+                  Command="{Binding OtroRecuperoCommand}"
+                  CornerRadius="23"
+                  TextColor="White"
+                  HorizontalOptions="FillAndExpand"></Button>
                     </StackLayout>
 
                     <BoxView Color="Black"

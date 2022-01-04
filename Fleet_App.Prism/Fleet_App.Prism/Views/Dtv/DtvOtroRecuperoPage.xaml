@@ -1,0 +1,173 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Fleet_App.Prism.Views.DtvOtroRecuperoPage"
+             BackgroundColor="{StaticResource colorBackground}"
+             Title="{Binding Title}">
+
+    <StackLayout
+    Padding="5">
+
+
+
+
+
+        <Grid Padding="5,5"
+                RowSpacing="-0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row=" 0"
+                 Grid.Column="0 "
+                 Grid.ColumnSpan="5"
+                 FontSize="Small"
+             
+                 FontAttributes="Bold"
+                 Text="Esta opción es UNICAMENTE para registrar Recupero de Equipos que no estaban informados por DTV como que están en poder del Cliente, y que el Cliente solicita devolver."
+                 TextColor="Red"
+                 VerticalOptions="Center"></Label>
+
+            <Label Grid.Row=" 1"
+                 Grid.Column="0 "
+                 Grid.ColumnSpan="4"
+                 FontSize="Small"
+             
+                 FontAttributes="Bold"
+                 Text=""
+                 TextColor="Red"
+                 VerticalOptions="Center"></Label>
+
+            <Label                 
+        Grid.Row=" 2"
+        Grid.Column="0 "
+        
+        FontSize="Micro"
+        Text="Cod.Equipo:"
+        HorizontalOptions="Start"
+        TextColor="Blue"
+        VerticalOptions="Center"></Label>
+
+            <Picker 
+        Grid.Row=" 2"
+        Grid.Column="1 "
+        
+        x:Name="picker"
+        Title="Elija Catálogo"
+        FontSize="Micro"
+        SelectedItem="{Binding CODDECO1}"
+        IsEnabled="{Binding Activo}"
+        HeightRequest="44">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>EMOIW3,5-9</x:String>
+                        <x:String>WVRTM-130A</x:String>
+                        <x:String>XM-IC367-9</x:String>
+                        <x:String>EMOOC365-9</x:String>
+                        <x:String>EMOIW365-9</x:String>
+                        <x:String>FMOIW992</x:String>
+                        <x:String>LHR-22</x:String>
+                        <x:String>LH-01</x:String>
+                        <x:String>LH-27</x:String>
+                        <x:String>LH-26</x:String>
+                        <x:String>LHR-26</x:String>
+                        <x:String>LH-10</x:String>
+                        <x:String>LHR-01</x:String>
+                        <x:String>LKR-01</x:String>
+                        <x:String>LH01-100</x:String>
+                        <x:String>LH26-100</x:String>
+                        
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label               
+        Grid.Row=" 3"
+        Grid.Column="0 "
+        FontSize="Micro"
+        Text="N° de Serie:"
+        HorizontalOptions="Start"
+        TextColor="Blue"
+        VerticalOptions="Center"></Label>
+
+            <Entry
+        x:Name="entry"
+        Grid.Row=" 3"
+        Grid.Column="1 "
+        
+        HeightRequest="44"
+        FontSize="Micro"
+        BackgroundColor="White"
+        IsEnabled="{Binding Activo}"
+        Placeholder="Ingrese N°Serie..."
+        WidthRequest="200"
+        HorizontalOptions="Start"
+        TextColor="Black"
+        Text="{Binding NROSERIEEXTRA, Mode=TwoWay}"
+        VerticalOptions="Center"></Entry>
+
+            <ImageButton 
+        Grid.Row="3"
+        Grid.Column="2 "
+        
+        IsVisible="{Binding Activo}"
+        IsEnabled="False"
+        WidthRequest="40"
+        HeightRequest="40"
+        BackgroundColor="White"
+        Command="{Binding SelectModemCommand}"
+        Source="ic_action_qr2"/>
+            <ImageButton 
+                        Grid.Row="3"
+                        Grid.Column="3 "
+                        IsVisible="{Binding Activo}"
+                        IsEnabled="False"
+                        WidthRequest="40"
+                        HeightRequest="40"
+                        BackgroundColor="White"
+                        Command="{Binding PutSNCommand}"
+                                 Source="equis"/>
+        </Grid>
+
+
+
+        <StackLayout Padding="5,0,5,0"
+                     Orientation="Horizontal"
+                     VerticalOptions="EndAndExpand"
+                       Spacing="5">
+            <Button Text="GUARDAR"
+                  BackgroundColor="Purple"
+                  IsEnabled="{Binding IsEnabled}"
+                  Command="{Binding SaveCommand}"
+                  CornerRadius="23"
+                  TextColor="White"
+                  HorizontalOptions="FillAndExpand"></Button>
+            <Button Text="CANCELAR"
+                  BackgroundColor="Red"
+                  IsEnabled="{Binding IsEnabled}"
+                  Command="{Binding CancelCommand}"
+                  CornerRadius="23"
+                  TextColor="White"
+                  HorizontalOptions="FillAndExpand"></Button>
+
+        </StackLayout>
+
+
+    </StackLayout>
+
+
+</ContentPage>

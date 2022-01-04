@@ -321,7 +321,7 @@ namespace Fleet_App.Web.Controllers.API
                r.FechaEvento3,
                r.Evento4,
                r.FechaEvento4,
-               r.MODELO,
+               //r.MODELO,
                r.Observacion,
                
                r.TelefAlternativo1,
