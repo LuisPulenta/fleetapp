@@ -416,8 +416,8 @@ namespace Fleet_App.Prism.ViewModels
             int? CR = null;
             if (Dtv.ESTADOGAOS == "EJB")
             {
-                CR = 60;
-                Dtv.CodigoCierre = 60;
+                CR = 70;
+                Dtv.CodigoCierre = 70;
             }
             else
             {
@@ -467,7 +467,7 @@ namespace Fleet_App.Prism.ViewModels
                     if (CR == 41) { DescCR = "CLIENTE AUSENTE"; };
                     if (CR == 43) { DescCR = "NO ATIENDE EL TELEFONO"; };
                     if (CR == 45) { DescCR = "VISITA COORDINADA"; };
-                    if (CR == 60) { DescCR = "RECUPERADO"; };
+                    if (CR == 70) { DescCR = "RECUPERADO"; };
 
 
                     var mycc = new AsignacionesOT
@@ -578,7 +578,7 @@ namespace Fleet_App.Prism.ViewModels
                     newDtv.CodigoCierre == 42 ||
                     newDtv.CodigoCierre == 44 ||
                     newDtv.CodigoCierre == 45 ||
-                    newDtv.CodigoCierre == 60
+                    newDtv.CodigoCierre == 70
 
                     )
                     )
@@ -627,7 +627,7 @@ namespace Fleet_App.Prism.ViewModels
                 if (CR == 41) { DescCR = "CLIENTE AUSENTE"; };
                 if (CR == 43) { DescCR = "NO ATIENDE EL TELEFONO"; };
                 if (CR == 45) { DescCR = "VISITA COORDINADA"; };
-                if (CR == 60) { DescCR = "RECUPERADO"; };
+                if (CR == 70) { DescCR = "RECUPERADO"; };
 
 
                 foreach (var cc in ControlDtvs)
@@ -668,7 +668,7 @@ namespace Fleet_App.Prism.ViewModels
                             Observacion = cc.Observacion,
                             HsCumplida = cc.HsCumplida,
                             UserID = Dtv.UserID,
-                            CodigoCierre = 60,
+                            CodigoCierre = 70,
                             ObservacionCaptura = Dtv.ObservacionCaptura,
                             Novedades = Dtv.Novedades,
                             CantRem = Dtv.CantRem,
