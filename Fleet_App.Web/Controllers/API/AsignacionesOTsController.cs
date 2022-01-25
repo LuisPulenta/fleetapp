@@ -647,8 +647,8 @@ namespace Fleet_App.Web.Controllers.API
            .GroupBy(r => new
                         {
                             r.PROYECTOMODULO,
-                            r.ESTADOGAOS,
-                            r.CLIENTE
+                            r.ESTADOGAOS
+                            
                          })
            .Select(g => new
            {
@@ -710,7 +710,6 @@ namespace Fleet_App.Web.Controllers.API
             }
 
             var orders = await _dataContext.AsignacionesOTs
-                .Include(m => m.ControlesEquivalencia)
                 .Where(o => (
                                 o.UserID == trabajosRequest.UserID) 
                             && (o.PROYECTOMODULO == trabajosRequest.Proyecto)
@@ -726,7 +725,7 @@ namespace Fleet_App.Web.Controllers.API
            {
                PROYECTOMODULO = g.Key.PROYECTOMODULO,
                CodigoCierre = g.Key.CodigoCierre,
-               Cant = g.Select(x => x.ReclamoTecnicoID).Distinct().Count(),
+               Cant = g.Select(x => x.DOMICILIO).Distinct().Count(),
            }).ToListAsync();
 
 
