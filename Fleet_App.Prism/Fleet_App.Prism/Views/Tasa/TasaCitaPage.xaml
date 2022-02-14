@@ -224,9 +224,9 @@
           <DatePicker Grid.Row="4"
                         Grid.Column="1"
                         FontSize="Large"
-                        
+                        Format="dd/MM/yyyy" 
                         MinimumDate="{Binding Hoy}" 
-                        Date="{Binding FechaDeCita, StringFormat='{0:dd/MM/yyyy}'}" />
+                        Date="{Binding FechaDeCita}" />                       
 
           <Label
             Text="Hora Cita:"

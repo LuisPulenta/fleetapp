@@ -55,7 +55,7 @@
                      >
                 <StackLayout 
                   >
-                  <Grid HeightRequest="190"
+                  <Grid HeightRequest="220"
                         RowSpacing="-0">
                     <Grid.GestureRecognizers>
                       <TapGestureRecognizer Command="{Binding SelectCableCommand}" />
@@ -93,7 +93,7 @@
                            Text="Cliente:"></Label>
                     <Label Grid.Row="0"
                            Grid.Column="1"
-                           Grid.ColumnSpan="5"
+                           Grid.ColumnSpan="4"
                            FontSize="Micro"
                            FontAttributes="None"
                            TextColor="Black"
@@ -135,7 +135,7 @@
                            Text="Dirección:"></Label>
                     <Label Grid.Row="2"
                            Grid.Column="1"
-                           Grid.ColumnSpan="5"
+                           Grid.ColumnSpan="4"
                            FontSize="Micro"
                            FontAttributes="None"
                            TextColor="Black"
@@ -149,7 +149,7 @@
                            Text="Localidad:"></Label>
                     <Label Grid.Row="3"
                            Grid.Column="3"
-                           Grid.ColumnSpan="5"
+                           Grid.ColumnSpan="3"
                            FontSize="Micro"
                            FontAttributes="None"
                            TextColor="Black"
@@ -283,10 +283,10 @@
                            Text="{Binding Observacion}" ></Label>
 
                   <Button
-                           Grid.Row="8"
-                           Grid.Column="4" 
+                           Grid.Row="9"
+                           Grid.Column="3" 
                            Grid.RowSpan="3"
-                           Grid.ColumnSpan="3"
+                           Grid.ColumnSpan="4"
                            MinimumHeightRequest="5"
                            Command="{Binding CitaCommand}"
                            HeightRequest="10"
